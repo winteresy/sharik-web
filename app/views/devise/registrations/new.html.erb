@@ -1,0 +1,93 @@
+<h2>Регистрация для человека</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :Email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+  <%= f.label :username, 'Придумайте уникальный username' %><br />
+  <%= f.text_field :username,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "username" }%>
+  </div>
+
+  <div class="field">
+  <%= f.label :name, 'Имя' %><br />
+  <%= f.text_field :name,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "name" }%>
+  </div>
+
+  <div class="field">
+  <%= f.label :surname, 'Фамилия' %><br />
+  <%= f.text_field :surname,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "surname" }%>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, 'Пароль' %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, 'Подтвердите пароль' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <h2>Регистрация для собаки</h2>
+
+  <div class="field">
+  <%= f.label :dog_name, 'Кличка собаки' %><br />
+  <%= f.text_field :dog_name,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "dog name" }%>
+  </div>
+
+  <div class="field">
+  <%= f.label :dog_breed, 'Порода собаки' %><br />
+  <%= f.text_field :dog_breed,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "dog breed" }%>
+  </div>
+
+  <div class="field">
+  <%= f.label :dog_sex, 'Пол собаки' %><br />
+  <%= f.label :dog_sex, "м", :value => "true"  %>
+  <%= f.radio_button :dog_sex, true %>
+  <%= f.label :dog_sex, "ж", :value => "false" %>
+  <%= f.radio_button :dog_sex, false %>
+  </div>
+
+  <div class="field">
+  <%= f.label :dog_age, 'Возраст собаки' %><br />
+  <%= f.number_field :dog_age, in: 1.0..30.0, step: 1 ,
+              input_html: { autocomplete: "1" }%>
+  </div>
+
+  <div class="field">
+  <%= f.label :dog_describtion, 'Опишите собаку' %><br />
+  <%= f.text_field :dog_describtion,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "dog describtion" }%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Зарегистрироваться" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
