@@ -1,5 +1,4 @@
 class Api::V1::PostsController < ApplicationController
-    before_action :authenticate_user!
     before_action :set_post, only: [:show, :edit, :update, :destroy]
     def index
         @posts = Post.all

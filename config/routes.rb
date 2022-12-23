@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'     
  end
   authenticated :user do
-    root "pages#authentification", as: :authenticated_root
+    root "map#index", as: :authenticated_root
   end
   root 'pages#home'
   namespace :api, defaults: { format: :json }  do
