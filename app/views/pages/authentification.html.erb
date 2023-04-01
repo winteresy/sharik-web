@@ -1,6 +1,10 @@
-
-          <% if user_signed_in? %>
-            <%= link_to('Выйти', destroy_user_session_path, method: :delete, class: "nav-link") %>
-          <% else %>
-            <%= link_to('Войти', new_user_session_path, class: "nav-link") %>
-          <% end %>
+<div class="page"> 
+    <div class="container">
+    <h1 class="header_page">Гуляй со своей собакой в компании</h1>
+        <% if user_signed_in? %>
+            <%= link_to('Выйти', destroy_user_session_path, method: :delete, class: "page_link") %>
+        <% else %>
+            <%= link_to('Начать', new_user_session_path, class: "page_link page_link_login") %>
+        <% end %>
+    </div>
+</div>
