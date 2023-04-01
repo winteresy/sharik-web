@@ -5,10 +5,9 @@ Rails.application.routes.draw do
   devise_scope :user do  
     get '/users/sign_out' => 'devise/sessions#destroy'     
  end
-  authenticated :user do
-    root "map#index", as: :authenticated_root
-  end
+ get '/authentification', to: 'pages#authentification'
   root 'pages#home'
+  
   namespace :api, defaults: { format: :json }  do
     namespace :v1 do
       resources :posts, only: [:index, :show, :create, :update, :destroy]
